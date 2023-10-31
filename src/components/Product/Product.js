@@ -2,7 +2,7 @@ import React from 'react'
 
 const Product = (props) => {
 
-  const {name, id} = props.product;
+  const {id, name} = props.product;
 
   return (
     <div style={{border: '1px solid tomato', borderRadius: '10px', margin: '10px 20px', padding: '10px 20px'}}>

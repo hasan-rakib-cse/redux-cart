@@ -3,21 +3,18 @@ import Product from '../Product/Product';
 import { addToCart } from '../../redux/actions/cartActions';
 import { connect } from 'react-redux';
 
-const Shop = () => {
+const Shop = (props) => {
 
-    const products = [
-        {id: 1, name: 'Lenovo Laptop'},
-        {id: 2, name: 'Asus Laptop'},
-        {id: 3, name: 'Dell Laptop'},
-        {id: 4, name: 'Hp Laptop'},
-        {id: 5, name: 'Toshiba Laptop'},
-    ];
+  console.log(props)
+
+    const {products} = props;
+    // cartReducers theke products gulo props er moddhe chole asche redux er store theke 
 
   return (
     <div>
         <h4>This is Shop</h4>
         {
-          products.map((pd) => <Product product={pd} />)
+          products.map((pd) => <Product key={pd.id} product={pd} />)
         }
     </div>
   )
