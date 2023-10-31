@@ -7,14 +7,16 @@ const Shop = (props) => {
 
   console.log(props)
 
-    const {products} = props;
+    const {products, addToCart} = props;
     // cartReducers theke products gulo props er moddhe chole asche redux er store theke 
 
   return (
     <div>
         <h4>This is Shop</h4>
         {
-          products.map((pd) => <Product key={pd.id} product={pd} />)
+          products.map((pd) => <Product key={pd.id} product={pd} addToCart = {addToCart} />)
+          // addToCart = {addToCart}, akhane addToCart asche mapDispatchToProps er right addToCart theke, sei right addToCart asche
+          // import { addToCart } from '../../redux/actions/cartActions'; theke
         }
     </div>
   )
