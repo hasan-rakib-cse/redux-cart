@@ -13,31 +13,32 @@ const initialState = {
 }
 
 const cartReducers = (state = initialState, action) => {
-  switch(action.type) {
+    switch(action.type) {
 
-    case ADD_TO_CART: {
-        // return {
-        //     cart: [...state.cart, action.id]
-        // }
-        const newId = action.id;
-        const newCart = [...state.cart, newId]
-        return {
-            ...state, cart: newCart,
-        };
-    }
+        case ADD_TO_CART: {
+            const newItem = {
+                productId: action.id,
+                name: action.name,
+                cartId: state.cart.length + 1
+            }
+            const newCart = [...state.cart, newItem]
+            return {
+                ...state, cart: newCart,
+            };
+        }
 
-    case REMOVE_FROM_CART: {
-        const removeId = action.id;
-        const remainingCart = state.cart.filter((item) => item !== removeId)
-        return {
-            ...state, cart: remainingCart
-        };
-    }
+        case REMOVE_FROM_CART: {
+            const cartId = action.cartId;
+            const remainingCart = state.cart.filter((item) => item.cartId !== cartId)
+            return {
+                ...state, cart: remainingCart
+            };
+        }
 
-    default: {
-        return state;
+        default: {
+            return state;
+        }
     }
-  }
 }
 
 export default cartReducers
