@@ -22,8 +22,7 @@ const cartReducers = (state = initialState, action) => {
         const newId = action.id;
         const newCart = [...state.cart, newId]
         return {
-            cart: newCart,
-            products: state.products
+            ...state, cart: newCart,
         };
     }
 
@@ -31,7 +30,7 @@ const cartReducers = (state = initialState, action) => {
         const removeId = action.id;
         const remainingCart = state.cart.filter((item) => item !== removeId)
         return {
-            cart: remainingCart
+            ...state, cart: remainingCart
         };
     }
 
