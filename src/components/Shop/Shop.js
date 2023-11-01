@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 
 const Shop = (props) => {
 
-  console.log(props)
-
     const {products, addToCart} = props;
     // cartReducers theke products gulo props er moddhe chole asche redux er store theke 
 
